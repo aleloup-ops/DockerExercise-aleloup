@@ -5,6 +5,8 @@ services:
     build: ./web/.
     ports: 
       - "8080:80"
+    networks:
+      - postgre
   words:
     restart: always
     build: ./words/.
@@ -17,6 +19,7 @@ services:
     build: ./db/.
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
+      - DATABASE_HOST=127.0.0.1
     networks:
       - postgre
     ports:
