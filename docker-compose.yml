@@ -4,14 +4,14 @@ services:
     restart: always
     build: ./web/.
     ports: 
-      - "8080:80"
+      - "80:80"
     networks:
       - postgre
   words:
     restart: always
     build: ./words/.
     ports: 
-        - "8080"
+        - "8080:8080"
     networks:
       - postgre
   db:
