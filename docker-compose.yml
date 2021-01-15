@@ -1,11 +1,12 @@
 version: '3'
-services: 
-  db:
-    restart: always
-    build: ./db/.
-  words:
-    restart: always
-    build: ./words/.
+services:
   web:
     restart: always
     build: ./web/.
+    ports: 
+      - "8080:80"
+  words:
+    restart: always
+    build: ./words/.
+    ports: 
+        - "8080"
