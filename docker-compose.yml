@@ -10,3 +10,16 @@ services:
     build: ./words/.
     ports: 
         - "8080"
+    networks:
+      - postgre
+  db:
+    restart: always
+    build: ./db/.
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - postgre
+    ports:
+      - "5432"
+networks:
+  postgre:
